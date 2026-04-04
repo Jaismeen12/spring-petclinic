@@ -32,6 +32,14 @@ pipeline {
             }
         }
 
+        stage('Push to ACR') {
+            steps {
+                sh 'az acr login --name devpetclinicacr12345'
+                sh 'docker tag petclinic-app devpetclinicacr12345.azurecr.io/petclinic-app:v1'
+                sh 'docker push devpetclinicacr12345.azurecr.io/petclinic-app:v1'
+            }
+        }
+
         stage('Deploy') {
             steps {
                 sh 'echo Deploy step coming soon'
