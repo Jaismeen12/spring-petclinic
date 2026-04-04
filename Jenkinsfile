@@ -1,34 +1,39 @@
 pipeline {
     agent any
 
+    tools {
+        maven 'maven'
+    }
+
     stages {
+
         stage('Checkout') {
             steps {
-                echo 'Code checkout'
+                git 'https://github.com/Jaismeen12/spring-petclinic.git'
             }
         }
 
         stage('Build') {
             steps {
-                echo 'Building application'
+                sh 'mvn clean install'
             }
         }
 
         stage('Test') {
             steps {
-                echo 'Running tests'
+                sh 'mvn test'
             }
         }
 
         stage('Docker Build') {
             steps {
-                echo 'Building Docker image'
+                sh 'docker build -t petclinic-app .'
             }
         }
 
         stage('Deploy') {
             steps {
-                echo 'Deploying to Kubernetes'
+                sh 'echo Deploy step coming soon'
             }
         }
     }
