@@ -40,9 +40,13 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+        stage('Deploy to AKS') {
             steps {
-                sh 'echo Deploy step coming soon'
+                sh 'az aks get-credentials --resource-group Dev-petclinic-rg --name dev-petclinic-aks --overwrite-existing'
+                sh 'kubectl apply -f deployment.yaml'
+                sh 'kubectl apply -f service.yaml'
+                sh 'kubectl get pods'
+                sh 'kubectl get svc'
             }
         }
     }
