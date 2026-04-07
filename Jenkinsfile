@@ -47,6 +47,14 @@ pipeline {
                 sh 'docker build -t petclinic-app .'
             }
         }
+        
+        stage('Trivy Scan') {
+             steps {
+                  sh '''
+                  trivy image petclinic-app
+              '''
+            }
+       }
 
         stage('Push to ACR') {
             steps {
