@@ -6,6 +6,7 @@ pipeline {
     }
 
     stages {
+
         stage('Checkout') {
             steps {
                 deleteDir()
@@ -23,6 +24,20 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'echo "Skipping failing integration tests for now"'
+            }
+        }
+
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    sh '''
+                    chmod +x mvnw
+                    ./mvnw sonar:sonar \
+                    -Dsonar.projectKey=petclinic \
+                    -Dsonar.host.url=http://host.docker.internal:9000 \
+                    -Dsonar.login=$SONAR_AUTH_TOKEN
+                    '''
+                }
             }
         }
 
