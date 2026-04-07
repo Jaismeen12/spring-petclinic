@@ -34,7 +34,7 @@ pipeline {
                 chmod +x mvnw
                 ./mvnw sonar:sonar \
                 -Dsonar.projectKey=petclinic \
-                -Dsonar.login=$SONAR_AUTH_TOKEN
+                -Dsonar.login=$sqp_be4f6176600892d3daba06aa4007e67f3c2480cc
                '''
                 }
             }
