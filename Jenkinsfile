@@ -29,13 +29,15 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
-                sh '''
-                chmod +x mvnw
-                ./mvnw sonar:sonar \
-                -Dsonar.projectKey=petclinic \
-                -Dsonar.login=$sqp_be4f6176600892d3daba06aa4007e67f3c2480cc
-               '''
+                withSonarQubeEnv('SonarQube') {
+                    withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
+                        sh '''
+                        chmod +x mvnw
+                        ./mvnw sonar:sonar \
+                        -Dsonar.projectKey=petclinic \
+                        -Dsonar.login=$SONAR_TOKEN
+                        '''
+                    }
                 }
             }
         }
