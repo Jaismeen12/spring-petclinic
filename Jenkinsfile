@@ -30,13 +30,12 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    sh '''
-                    chmod +x mvnw
-                    ./mvnw sonar:sonar \
-                    -Dsonar.projectKey=petclinic \
-                    -Dsonar.host.url=http://host.docker.internal:9000 \
-                    -Dsonar.login=$SONAR_AUTH_TOKEN
-                    '''
+                sh '''
+                chmod +x mvnw
+                ./mvnw sonar:sonar \
+                -Dsonar.projectKey=petclinic \
+                -Dsonar.login=$SONAR_AUTH_TOKEN
+               '''
                 }
             }
         }
