@@ -51,7 +51,7 @@ pipeline {
         stage('Trivy Scan') {
              steps {
                   sh '''
-                  trivy image petclinic-app
+                  trivy image --exit-code 1 --severity CRITICAL petclinic-app
               '''
             }
        }
