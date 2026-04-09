@@ -40,20 +40,27 @@ Tags and pushes Docker image to Azure Container Registry.
 8. Deploy to AKS
 Deploys application using Kubernetes manifests.
 Exposes application using LoadBalancer service.
+
+
 🔐 Security & Best Practices
 ✅ Sensitive credentials (SonarQube token) stored securely in Jenkins
 ✅ No hardcoded secrets in pipeline
 ✅ Integrated security scanning using Trivy
 ✅ Modular and scalable pipeline design
+
+
 🌐 Application Deployment
 Application successfully deployed on AKS
 Accessible via external LoadBalancer IP
+
+
 📊 Key Features
 Fully automated CI/CD pipeline
 Integrated code quality checks (SonarQube)
 Integrated container security scanning (Trivy)
 Cloud-native deployment on Kubernetes
 Production-like DevOps workflow
+
 🚀 How to Run (High-Level)
 Clone the repository
 Configure Jenkins pipeline
@@ -61,12 +68,14 @@ Set up SonarQube and credentials
 Build Docker image
 Push image to ACR
 Deploy to AKS using Kubernetes manifests
+
 📈 Future Improvements
 Implement Quality Gate enforcement in SonarQube
 Fail pipeline on critical vulnerabilities in Trivy
 Add Helm charts for deployment
 Add monitoring (Prometheus + Grafana)
-👩‍💻 Author
 
+
+👩‍💻 Author
 Jaismeen Kaur
 DevOps & Cloud Enthusiast
