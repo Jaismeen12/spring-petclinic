@@ -21,25 +21,32 @@ GitHub → Jenkins → Maven Build → SonarQube Analysis → Docker Build → T
 
 ⚙️ Pipeline Stages
 1. Checkout
-Clones source code from GitHub repository.
+- Clones source code from GitHub repository.
+
 2. Build
-Compiles and packages the application using Maven.
+- Compiles and packages the application using Maven.
+  
 3. Test
-Executes unit tests (currently mocked/skipped for pipeline stability).
+- Executes unit tests (currently mocked/skipped for pipeline stability).
+  
 4. SonarQube Analysis
-Performs static code analysis.
-Detects bugs, vulnerabilities, and code smells.
-Ensures code quality before proceeding further.
+- Performs static code analysis.
+- Detects bugs, vulnerabilities, and code smells.
+- Ensures code quality before proceeding further.
+  
 5. Docker Build
-Builds Docker image of the Spring Boot application.
+- Builds Docker image of the Spring Boot application.
+  
 6. Trivy Scan
-Scans Docker image for vulnerabilities.
-Identifies security risks in OS packages and dependencies.
+- Scans Docker image for vulnerabilities.
+- Identifies security risks in OS packages and dependencies.
+  
 7. Push to ACR
-Tags and pushes Docker image to Azure Container Registry.
+- Tags and pushes Docker image to Azure Container Registry.
+  
 8. Deploy to AKS
-Deploys application using Kubernetes manifests.
-Exposes application using LoadBalancer service.
+- Deploys application using Kubernetes manifests.
+- Exposes application using LoadBalancer service.
 
 
 🔐 Security & Best Practices
@@ -55,25 +62,27 @@ Accessible via external LoadBalancer IP
 
 
 📊 Key Features
-Fully automated CI/CD pipeline
-Integrated code quality checks (SonarQube)
-Integrated container security scanning (Trivy)
-Cloud-native deployment on Kubernetes
-Production-like DevOps workflow
+- Fully automated CI/CD pipeline
+- Integrated code quality checks (SonarQube)
+- Integrated container security scanning (Trivy)
+- Cloud-native deployment on Kubernetes
+- Production-like DevOps workflow
+  
 
 🚀 How to Run (High-Level)
-Clone the repository
-Configure Jenkins pipeline
-Set up SonarQube and credentials
-Build Docker image
-Push image to ACR
-Deploy to AKS using Kubernetes manifests
+- Clone the repository
+- Configure Jenkins pipeline
+- Set up SonarQube and credentials
+- Build Docker image
+- Push image to ACR
+- Deploy to AKS using Kubernetes manifests
+  
 
 📈 Future Improvements
-Implement Quality Gate enforcement in SonarQube
-Fail pipeline on critical vulnerabilities in Trivy
-Add Helm charts for deployment
-Add monitoring (Prometheus + Grafana)
+- Implement Quality Gate enforcement in SonarQube
+- Fail pipeline on critical vulnerabilities in Trivy
+- Add Helm charts for deployment
+- Add monitoring (Prometheus + Grafana)
 
 
 👩‍💻 Author
